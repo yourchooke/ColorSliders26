@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		27475AD5284F427A00E1C53A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475AD4284F427A00E1C53A /* AppDelegate.swift */; };
 		27475AD7284F427A00E1C53A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475AD6284F427A00E1C53A /* SceneDelegate.swift */; };
-		27475AD9284F427A00E1C53A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475AD8284F427A00E1C53A /* ViewController.swift */; };
+		27475AD9284F427A00E1C53A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27475AD8284F427A00E1C53A /* SettingsViewController.swift */; };
 		27475ADC284F427A00E1C53A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27475ADA284F427A00E1C53A /* Main.storyboard */; };
 		27475ADE284F427C00E1C53A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27475ADD284F427C00E1C53A /* Assets.xcassets */; };
 		27475AE1284F427C00E1C53A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27475ADF284F427C00E1C53A /* LaunchScreen.storyboard */; };
+		27A8A056287F1FE900A3748C /* ColoredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A8A055287F1FE900A3748C /* ColoredViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27475AD1284F427A00E1C53A /* ColorSliders26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorSliders26.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27475AD4284F427A00E1C53A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27475AD6284F427A00E1C53A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		27475AD8284F427A00E1C53A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		27475AD8284F427A00E1C53A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		27475ADB284F427A00E1C53A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27475ADD284F427C00E1C53A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27475AE0284F427C00E1C53A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27475AE2284F427C00E1C53A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27A8A055287F1FE900A3748C /* ColoredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				27475AD4284F427A00E1C53A /* AppDelegate.swift */,
 				27475AD6284F427A00E1C53A /* SceneDelegate.swift */,
-				27475AD8284F427A00E1C53A /* ViewController.swift */,
+				27475AD8284F427A00E1C53A /* SettingsViewController.swift */,
 				27475ADA284F427A00E1C53A /* Main.storyboard */,
 				27475ADD284F427C00E1C53A /* Assets.xcassets */,
 				27475ADF284F427C00E1C53A /* LaunchScreen.storyboard */,
 				27475AE2284F427C00E1C53A /* Info.plist */,
+				27A8A055287F1FE900A3748C /* ColoredViewController.swift */,
 			);
 			path = ColorSliders22;
 			sourceTree = "<group>";
@@ -138,7 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27475AD9284F427A00E1C53A /* ViewController.swift in Sources */,
+				27475AD9284F427A00E1C53A /* SettingsViewController.swift in Sources */,
+				27A8A056287F1FE900A3748C /* ColoredViewController.swift in Sources */,
 				27475AD5284F427A00E1C53A /* AppDelegate.swift in Sources */,
 				27475AD7284F427A00E1C53A /* SceneDelegate.swift in Sources */,
 			);
