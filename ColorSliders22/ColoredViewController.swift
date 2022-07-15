@@ -15,6 +15,14 @@ class ColoredViewController: UIViewController {
 
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let settingsVC = segue.destination as? SettingsViewController else {return}
+        
+        print("!")
+    }
+    
+    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+        print("unwind")
+    }
 
 }
