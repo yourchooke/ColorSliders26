@@ -61,11 +61,11 @@
 				27475AD4284F427A00E1C53A /* AppDelegate.swift */,
 				27475AD6284F427A00E1C53A /* SceneDelegate.swift */,
 				27475AD8284F427A00E1C53A /* SettingsViewController.swift */,
+				27A8A055287F1FE900A3748C /* ColoredViewController.swift */,
 				27475ADA284F427A00E1C53A /* Main.storyboard */,
 				27475ADD284F427C00E1C53A /* Assets.xcassets */,
 				27475ADF284F427C00E1C53A /* LaunchScreen.storyboard */,
 				27475AE2284F427C00E1C53A /* Info.plist */,
-				27A8A055287F1FE900A3748C /* ColoredViewController.swift */,
 			);
 			path = ColorSliders22;
 			sourceTree = "<group>";

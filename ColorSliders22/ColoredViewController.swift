@@ -17,12 +17,14 @@ class ColoredViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingsVC = segue.destination as? SettingsViewController else {return}
-        
+        settingsVC.color = self.view.backgroundColor
         print("!")
     }
     
-    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard let settingsVC = segue.source as? SettingsViewController else { return }
         print("unwind")
+        self.view.backgroundColor = settingsVC.color
     }
 
 }

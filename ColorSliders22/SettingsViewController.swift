@@ -19,38 +19,42 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var greenColorValueLabel: UILabel!
     @IBOutlet weak var blueColorValueLabel: UILabel!
     
+    var color: UIColor!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         coloredView.layer.cornerRadius = 20
+        coloredView.backgroundColor = color
         
-        redSliderPicker.value = 1
-        greenSliderPicker.value = 1
-        blueSliderPicker.value = 1
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 1
+        
+        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        redSliderPicker.value = Float(red)
+        greenSliderPicker.value = Float(green)
+        blueSliderPicker.value = Float(blue)
         
         redColorValueLabel.text = String(redSliderPicker.value)
         greenColorValueLabel.text = String(greenSliderPicker.value)
         blueColorValueLabel.text = String(blueSliderPicker.value)
-        
     }
 
     @IBAction func redSliderMove() {
-        
-        redColorValueLabel.text = String(format: "%.2f", redSliderPicker.value)
-        
+        redColorValueLabel.text = string(slider: redSliderPicker)
         changeColor()
-        
     }
     
     @IBAction func greenSliderMove() {
-        greenColorValueLabel.text = String(format: "%.2f", greenSliderPicker.value)
-
+        greenColorValueLabel.text = string(slider: greenSliderPicker)
         changeColor()
-        
     }
     
     @IBAction func blueSliderMove() {
-        blueColorValueLabel.text = String(format: "%.2f", blueSliderPicker.value)
-        
+        blueColorValueLabel.text = string(slider: blueSliderPicker)
         changeColor()
     }
     
@@ -58,10 +62,13 @@ class SettingsViewController: UIViewController {
         let redValue = CGFloat(redSliderPicker.value)
         let greenValue = CGFloat(greenSliderPicker.value)
         let blueValue = CGFloat(blueSliderPicker.value)
-        
-        coloredView.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1)
+        color = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1)
+        coloredView.backgroundColor = color
     }
     
+    private func string(slider: UISlider) -> String {
+        return String(format: "%.2f", slider.value)
+    }
     
 }
 
