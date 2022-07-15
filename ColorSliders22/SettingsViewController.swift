@@ -19,6 +19,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var greenColorValueLabel: UILabel!
     @IBOutlet weak var blueColorValueLabel: UILabel!
     
+    @IBOutlet weak var redTextField: UITextField!
+    @IBOutlet weak var greenTextField: UITextField!
+    @IBOutlet weak var blueTextField: UITextField!
+    
     var color: UIColor!
     
     
@@ -45,16 +49,19 @@ class SettingsViewController: UIViewController {
 
     @IBAction func redSliderMove() {
         redColorValueLabel.text = string(slider: redSliderPicker)
+        redTextField.text = string(slider: redSliderPicker)
         changeColor()
     }
     
     @IBAction func greenSliderMove() {
         greenColorValueLabel.text = string(slider: greenSliderPicker)
+        greenTextField.text = string(slider: greenSliderPicker)
         changeColor()
     }
     
     @IBAction func blueSliderMove() {
         blueColorValueLabel.text = string(slider: blueSliderPicker)
+        blueTextField.text = string(slider: blueSliderPicker)
         changeColor()
     }
     
@@ -69,6 +76,5 @@ class SettingsViewController: UIViewController {
     private func string(slider: UISlider) -> String {
         return String(format: "%.2f", slider.value)
     }
-    
 }
 
