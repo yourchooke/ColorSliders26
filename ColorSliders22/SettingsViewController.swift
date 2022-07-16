@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var coloredView: UIView!
     
@@ -24,8 +24,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var blueTextField: UITextField!
     
     var color: UIColor!
-    
-    
+    var delegate: SettingsViewControllerDelegate!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         coloredView.layer.cornerRadius = 20
@@ -42,11 +42,20 @@ class SettingsViewController: UIViewController {
         greenSliderPicker.value = Float(green)
         blueSliderPicker.value = Float(blue)
         
-        redColorValueLabel.text = String(redSliderPicker.value)
-        greenColorValueLabel.text = String(greenSliderPicker.value)
-        blueColorValueLabel.text = String(blueSliderPicker.value)
+        redColorValueLabel.text = string(slider: redSliderPicker)
+        greenColorValueLabel.text = string(slider: greenSliderPicker)
+        blueColorValueLabel.text = string(slider: blueSliderPicker)
+        
+        redTextField.text = string(slider: redSliderPicker)
+        greenTextField.text = string(slider: greenSliderPicker)
+        blueTextField.text = string(slider: greenSliderPicker)
     }
 
+    @IBAction func doneButtonPressed() {
+        delegate.setNewColor(for: coloredView.backgroundColor ?? UIColor(red: 1, green: 1, blue: 1, alpha: 1))
+        dismiss(animated: true)
+    }
+    
     @IBAction func redSliderMove() {
         redColorValueLabel.text = string(slider: redSliderPicker)
         redTextField.text = string(slider: redSliderPicker)
@@ -65,6 +74,17 @@ class SettingsViewController: UIViewController {
         changeColor()
     }
     
+    @IBAction func RGBTextField(_ sender: UITextField){
+        switch sender {
+        case redTextField:
+            changeColor()
+            //redSliderPicker.value = Float(redTextField.text)
+        case greenTextField: changeColor()
+        default:
+            changeColor()
+        }
+    }
+    
     private func changeColor() {
         let redValue = CGFloat(redSliderPicker.value)
         let greenValue = CGFloat(greenSliderPicker.value)
@@ -75,6 +95,16 @@ class SettingsViewController: UIViewController {
     
     private func string(slider: UISlider) -> String {
         return String(format: "%.2f", slider.value)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField){
+        switch textField {
+        case redTextField:
+            changeColor()
+        case greenTextField: changeColor()
+        default:
+            changeColor()
+        }
     }
 }
 
