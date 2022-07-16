@@ -22,12 +22,6 @@ class ColoredViewController: UIViewController {
         settingsVC.delegate = self
         print("!")
     }
-    
-//    @IBAction func unwind(for segue: UIStoryboardSegue) {
-//        guard let settingsVC = segue.source as? SettingsViewController else { return }
-//        print("unwind")
-//        self.view.backgroundColor = settingsVC.color
-//    }
 
 }
 
