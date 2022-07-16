@@ -48,7 +48,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         redTextField.text = string(slider: redSliderPicker)
         greenTextField.text = string(slider: greenSliderPicker)
-        blueTextField.text = string(slider: greenSliderPicker)
+        blueTextField.text = string(slider: blueSliderPicker)
+        
+        redTextField.delegate = self
+        greenTextField.delegate = self
+        blueTextField.delegate = self
     }
 
     @IBAction func doneButtonPressed() {
@@ -86,10 +90,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func changeColor() {
-        let redValue = CGFloat(redSliderPicker.value)
-        let greenValue = CGFloat(greenSliderPicker.value)
-        let blueValue = CGFloat(blueSliderPicker.value)
-        color = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1)
+        color = UIColor(
+            red: CGFloat(redSliderPicker.value),
+            green: CGFloat(greenSliderPicker.value),
+            blue: CGFloat(blueSliderPicker.value),
+            alpha: 1
+        )
         coloredView.backgroundColor = color
     }
     
@@ -100,11 +106,44 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField){
         switch textField {
         case redTextField:
+            redSliderPicker.value = Float(redTextField.text!) ?? 0.0
+            redColorValueLabel.text = String(redTextField.text!)
             changeColor()
-        case greenTextField: changeColor()
+        case greenTextField:
+            greenSliderPicker.value = Float(greenTextField.text!) ?? 0.0
+            greenColorValueLabel.text = String(greenTextField.text!)
+            changeColor()
         default:
+            blueSliderPicker.value = Float(blueTextField.text!) ?? 0.0
+            blueColorValueLabel.text = String(blueTextField.text!)
             changeColor()
         }
+    }
+    
+    // то, что ниже, я цинично списала, потому что стало жалко трудов, потраченных на всё остальное по textfield
+    
+    @objc private func didTapDone() {
+        view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        textField.inputAccessoryView = keyboardToolbar
+        
+        let doneButton = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(didTapDone)
+        )
+        
+        let flexBarButton = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
+        
+        keyboardToolbar.items = [flexBarButton, doneButton]
     }
 }
 
